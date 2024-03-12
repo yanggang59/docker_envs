@@ -5,8 +5,8 @@
 
 How to build a image based on Dockerfile
 
-'''
+```
 docker build --no-cache -t XXX ./
-'''
+```
 
-XXX is the name for the image
+XXX is the name you specify for the image
