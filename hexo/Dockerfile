@@ -5,7 +5,7 @@ WORKDIR /hexo
 
 RUN apt update
 
-RUN apt install vim -y
+RUN apt install vim git -y
 
 RUN npm cache clean --force
 
