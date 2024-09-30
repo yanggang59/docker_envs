@@ -16,10 +16,6 @@ EXPOSE 4000
 RUN hexo init .
 RUN npm install
 
-# 复制本地的Hexo配置和文章
-# 这一步在构建镜像时不会执行，通常用于本地开发
-COPY . /hexo
-
 # 构建Hexo静态文件
 RUN hexo generate
 
