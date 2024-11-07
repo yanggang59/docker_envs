@@ -1,0 +1,21 @@
+version: "3"
+services:
+  gitbook:
+    hostname: gitbook
+    container_name: gitbook
+    image: fellah/gitbook
+    pull_policy: always
+    restart: always
+    privileged: true
+    tty: true
+    volumes:
+      - /root/workspace/gitbook/gitbook:/srv/gitbook
+      - /root/workspace/gitbook/html:/srv/html
+      - /etc/localtime:/etc/localtime
+    ports:
+      - 6000:4000
+    command:
+      - /bin/bash
+      - -c
+      - |
+        /bin/bash
