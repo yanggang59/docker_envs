@@ -13,20 +13,16 @@ RUN sudo apt install vim cmake git gcc make build-essential libssl-dev gcc-multi
 RUN sudo apt install nasm qemu qemu-kvm libgmp3-dev libmpc-dev libmpfr-dev texinfo curl -y
 
 
-
-RUN export PREFIX="/usr/local/i386elfgcc"
-RUN export TARGET=i386-elf
-RUN export PATH="$PREFIX/bin:$PATH"
 RUN mkdir /tmp/src && cd /tmp/src
 RUN curl -O https://mirror.tuna.tsinghua.edu.cn/gnu/binutils/binutils-2.39.tar.gz && tar xf binutils-2.39.tar.gz
 RUN mkdir binutils-build && cd binutils-build 
-RUN ../binutils-2.39/configure --target=$TARGET --enable-interwork --enable-multilib --disable-nls --disable-werror --prefix=$PREFIX 2>&1 | tee configure.log
+RUN ../binutils-2.39/configure --target=i386-elf --enable-interwork --enable-multilib --disable-nls --disable-werror --prefix=/usr/local/i386elfgcc 2>&1 | tee configure.log
 RUN sudo make all install 2>&1 | tee make.log
 
 RUN cd /tmp/src
 RUN curl -O https://mirror.tuna.tsinghua.edu.cn/gnu/gcc/gcc-12.2.0/gcc-12.2.0.tar.gz
 RUN tar xf gcc-12.2.0.tar.gz
-RUN cd gcc-12.2.0 && ./configure --target=$TARGET --prefix="$PREFIX" --disable-nls --disable-libssp --enable-language=c,c++ --without-headers --enable-multilib
+RUN cd gcc-12.2.0 && ./configure --target=i386-elf --prefix=/usr/local/i386elfgcc --disable-nls --disable-libssp --enable-language=c,c++ --without-headers --enable-multilib
 RUN echo "MAKE ALL-GCC:"
 RUN cd gcc-12.2.0 && sudo make all-gcc -j16
 RUN echo "MAKE ALL-TARGET-LIBGCC:"
