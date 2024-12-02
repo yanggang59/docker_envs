@@ -31,5 +31,3 @@ RUN echo "MAKE INSTALL-GCC:"
 RUN cd gcc-12.2.0 && sudo make install-gcc -j16
 RUN echo "MAKE INSTALL-TARGET-LIBGCC:"
 RUN cd gcc-12.2.0 && sudo make install-target-libgcc -j16
-RUN echo "HERE U GO MAYBE:"
-RUN export PATH="$PATH:/usr/local/i386elfgcc/bin"
