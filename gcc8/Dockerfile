@@ -9,4 +9,5 @@ RUN sudo sed -i "s@http://.*security.ubuntu.com@http://repo.huaweicloud.com@g" /
 RUN sudo apt update
 
 
-RUN sudo apt install bc libelf-dev bison bc libncurses5-dev flex vim cmake git make build-essential libssl-dev -y
+RUN sudo apt install bc libelf-dev bison bc libncurses5-dev flex cmake git make build-essential libssl-dev -y
+RUN sudo apt install bear vim -y
