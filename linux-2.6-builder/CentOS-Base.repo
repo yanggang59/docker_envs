@@ -1,0 +1,59 @@
+# CentOS-Base.repo
+#
+# The mirror system uses the connecting IP address of the client and the
+# update status of each mirror to pick mirrors that are updated to and
+# geographically close to the client.  You should use this for CentOS updates
+# unless you are manually picking other mirrors.
+#
+# If the mirrorlist= does not work for you, as a fall back you can try the
+# remarked out baseurl= line instead.
+#
+[base]
+name=CentOS- - Base
+baseurl=http://archive.kernel.org/centos-vault/5.11/os/x86_64
+#mirrorlist=http://mirrorlist.centos.org/?release=&arch=&repo=os
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+ 
+#released updates
+[updates]
+name=CentOS- - Updates
+baseurl=http://archive.kernel.org/centos-vault/5.11/updates/x86_64
+#mirrorlist=http://mirrorlist.centos.org/?release=&arch=&repo=updates
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+ 
+#additional packages that may be useful
+[extras]
+name=CentOS- - Extras
+baseurl=http://archive.kernel.org/centos-vault/5.11/extras/x86_64
+#mirrorlist=http://mirrorlist.centos.org/?release=&arch=&repo=extras
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+ 
+#packages used/produced in the build but not released
+[addons]
+name=CentOS- - Addons
+baseurl=http://archive.kernel.org/centos-vault/5.11/addons/x86_64
+#mirrorlist=http://mirrorlist.centos.org/?release=&arch=&repo=addons
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+ 
+#additional packages that extend functionality of existing packages
+[centosplus]
+name=CentOS- - Plus
+baseurl=http://archive.kernel.org/centos-vault/5.11/centosplus/x86_64
+#mirrorlist=http://mirrorlist.centos.org/?release=&arch=&repo=centosplus
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+ 
+#contrib - packages by Centos Users
+[contrib]
+name=CentOS- - Contrib
+baseurl=http://archive.kernel.org/centos-vault/5.11/contrib/x86_64/
+#mirrorlist=http://mirrorlist.centos.org/?release=&arch=&repo=contrib
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-5
+
