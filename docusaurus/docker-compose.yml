@@ -4,7 +4,6 @@ services:
     hostname: docusaurus
     container_name: docusaurus
     image: awesometic/docusaurus
-    pull_policy: always
     restart: always
     privileged: true
     tty: true
