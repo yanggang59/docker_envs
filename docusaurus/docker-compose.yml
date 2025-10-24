@@ -1,0 +1,14 @@
+version: "3"
+services:
+  docusaurus:
+    hostname: docusaurus
+    container_name: docusaurus
+    image: awesometic/docusaurus
+    pull_policy: always
+    restart: always
+    privileged: true
+    tty: true
+    volumes:
+      - ~/workspace/docusaurus/:/docusaurus
+    ports:
+      - 80:80
